@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aminex Financial | Premium Melbourne Mortgage Broker</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* --- 1. CORE DESIGN & VARIABLES --- */
+        :root {
+            --primary-bg: #121212;
+            --secondary-bg: #1E1E1E;
+            --card-bg: #2A2A2A;
+            --text-primary: #F5F5F5;
+            --text-secondary: #E0E0E0;
+            --accent-primary: #DAA520; /* Gold */
+            --accent-secondary: #4A90E2; /* Deep Blue */
+            --success-green: #10B981;
+            
+            --font-primary: 'Montserrat', sans-serif;
+            --font-secondary: 'Inter', sans-serif;
+        }
+
+        /* --- 2. GLOBAL STYLES & RESETS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-secondary);
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 18px;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-primary);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--text-primary);
+        }
+
+        h1 { font-size: 3.2rem; margin-bottom: 1rem; }
+        h2 { font-size: 2.6rem; margin-bottom: 2.5rem; text-align: center;}
+        h3 { font-size: 1.5rem; font-weight: 500; margin-bottom: 0.75rem; }
+        
+        p { color: var(--text-secondary); margin-bottom: 1rem; }
+        a { color: var(--accent-secondary); text-decoration: none; transition: color 0.3s ease; }
+        a:hover { color: var(--accent-primary); }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        /* --- 3. UTILITY & COMPONENT STYLES --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            font-family: var(--font-primary);
+            font-weight: 500;
+            font-size: 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-primary);
+            color: var(--primary-bg);
+            border-color: var(--accent-primary);
+        }
+        .btn-primary:hover {
+            background-color: #c89311;
+            border-color: #c89311;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-primary);
+            border-color: var(--text-primary);
+        }
+        .btn-secondary:hover {
+            background-color: var(--accent-primary);
+            color: var(--primary-bg);
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        /* --- 4. WEBSITE STRUCTURE STYLES --- */
+
+        /* HEADER */
+        .main-header {
+            background-color: var(--primary-bg);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-family: var(--font-primary); font-size: 1.8rem; font-weight: 700; color: var(--text-primary); }
+        .logo span { color: var(--accent-primary); }
+        .main-nav ul { list-style: none; display: flex; gap: 2rem; }
+        .main-nav a { color: var(--text-primary); font-weight: 500; transition: color 0.3s ease; }
+        .main-nav a:hover { color: var(--accent-primary); }
+        .header-contact { display: flex; align-items: center; gap: 1.5rem; }
+        .phone-number { color: var(--text-primary); font-weight: 500; }
+        .phone-number i { color: var(--accent-primary); margin-right: 0.5rem; }
+        .hamburger { display: none; color: var(--text-primary); font-size: 1.8rem; cursor: pointer; }
+
+        /* HERO SECTION */
+        .hero {
+            height: 95vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.95)), url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+        .hero-content h1 { text-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .hero-content .subheading { font-size: 1.3rem; max-width: 800px; margin: 0 auto 2rem auto; color: var(--text-secondary); }
+        .hero-ctas { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
+        .trust-indicators { color: var(--accent-primary); font-weight: 500; font-family: var(--font-primary); }
+        .trust-indicators span { margin: 0 1rem; }
+
+        /* SERVICES SECTION */
+        #services { background-color: var(--secondary-bg); }
+        .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+        .service-card {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #444;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: var(--accent-primary);
+        }
+        .service-card i { font-size: 3rem; color: var(--accent-primary); margin-bottom: 1.5rem; }
+        .service-card a { color: var(--accent-primary); font-weight: 700; }
+
+        /* CALCULATOR SECTION */
+        .calculator-interface {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--accent-primary);
+        }
+        .calculator-group { margin-bottom: 1.5rem; }
+        .calculator-group label { display: flex; justify-content: space-between; font-weight: 500; margin-bottom: 0.5rem; }
+        .calculator-group input[type="range"] { width: 100%; accent-color: var(--accent-primary); }
+        .calculator-result {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--primary-bg);
+            border-radius: 5px;
+            text-align: center;
+        }
+        .calculator-result p { margin: 0; color: var(--text-secondary); font-size: 1.2rem; }
+        .calculator-result .amount {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-top: 0.5rem;
+        }
+        .calculator-cta { text-align: center; margin-top: 2rem; }
+
+        /* ABOUT SECTION */
+        #about { background-color: var(--secondary-bg); }
+        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .about-image img { width: 100%; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
+        .credentials-list { list-style: none; padding-left: 0; }
+        .credentials-list li { margin-bottom: 1rem; padding-left: 2rem; position: relative; }
+        .credentials-list li::before {
+            content: '\f00c'; /* Font Awesome check icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent-primary);
+            position: absolute;
+            left: 0;
+            top: 5px;
+        }
+        .partner-logos { text-align: center; margin-top: 4rem; }
+        .partner-logos h3 { color: var(--text-secondary); font-weight: 500; margin-bottom: 2rem; }
+        .partner-logos img {
+            height: 40px;
+            margin: 0 1.5rem;
+            filter: grayscale(1) brightness(5); /* Makes logos white-ish */
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        .partner-logos img:hover { opacity: 1; }
+
+        /* TESTIMONIALS SECTION */
+        .testimonial-slider { position: relative; max-width: 800px; margin: 0 auto; overflow: hidden; }
+        .testimonial-track { display: flex; transition: transform 0.5s ease-in-out; }
+        .testimonial-card {
+            min-width: 100%;
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .client-photo { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--text-primary); margin: 0 auto 1.5rem auto; object-fit: cover; }
+        .testimonial-text { font-style: italic; font-size: 1.2rem; margin-bottom: 1.5rem; }
+        .star-rating { color: var(--accent-primary); margin-bottom: 0.5rem; }
+        .client-name { font-weight: 700; font-family: var(--font-primary); color: var(--text-primary); }
+        .client-pos { font-size: 0.9rem; color: var(--text-secondary); }
+        .slider-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .slider-btn { background: rgba(255,255,255,0.1); border: none; color: white; font-size: 2rem; cursor: pointer; padding: 0.5rem 1rem; border-radius: 50%; }
+        
+        /* CONTACT SECTION */
+        #contact { background-color: var(--secondary-bg); }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .contact-form .form-group { margin-bottom: 1.5rem; }
+        .contact-form input, .contact-form textarea, .contact-form select {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--primary-bg);
+            border: 1px solid #444;
+            color: var(--text-primary);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+        }
+        .contact-details .detail-item { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+        .contact-details i { font-size: 2rem; color: var(--accent-primary); width: 40px; text-align: center; }
+        .google-map {
+            margin-top: 2rem;
+            height: 250px;
+            background-color: var(--primary-bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* FOOTER */
+        .main-footer {
+            background-color: #0A0A0A;
+            padding: 4rem 0 2rem 0;
+            font-size: 0.9rem;
+        }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-bottom: 3rem; }
+        .footer-col h4 { color: var(--accent-primary); margin-bottom: 1rem; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 0.5rem; }
+        .footer-col a { color: var(--text-secondary); }
+        .footer-socials a { font-size: 1.5rem; margin-right: 1rem; }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 2rem; text-align: center; color: var(--text-secondary); }
+
+        /* --- 5. RESPONSIVE DESIGN --- */
+        @media (max-width: 1024px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2.2rem; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-content, .contact-grid { grid-template-columns: 1fr; }
+            .about-image { order: -1; margin-bottom: 2rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.4rem; }
+            .main-nav { 
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--secondary-bg);
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem 0;
+            }
+            .main-nav.active { display: flex; }
+            .main-nav ul { flex-direction: column; gap: 1rem; }
+            .hamburger { display: block; }
+            .header-contact .phone-number { display: none; }
+            .services-grid { grid-template-columns: 1fr; }
+            .hero-ctas { flex-direction: column; }
+            .trust-indicators span { display: block; margin: 0.5rem 0; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ======================= HEADER ======================= -->
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo">Aminex<span>Financial</span></a>
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#calculator">Calculators</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-contact">
+                <a href="tel:1300000000" class="phone-number"><i class="fas fa-phone"></i> 1300 000 000</a>
+                <a href="#contact" class="btn btn-primary">Free Consultation</a>
+            </div>
+            <div class="hamburger" id="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ======================= HERO SECTION ======================= -->
+        <section class="hero" id="home">
+            <div class="hero-bg"></div>
+            <div class="container hero-content">
+                <h1>Unlock Your Property Potential with Aminex Financial</h1>
+                <p class="subheading">Melbourne's innovative mortgage brokers with exclusive access to 40+ lenders and cutting-edge financial solutions.</p>
+                <div class="hero-ctas">
+                    <a href="#calculator" class="btn btn-primary">Calculate Borrowing Power</a>
+                    <a href="#contact" class="btn btn-secondary">Book Free Consultation</a>
+                </div>
+                <div class="trust-indicators">
+                    <span><i class="fas fa-check-circle"></i> MFAA Accredited</span>
+                    <span><i class="fas fa-users"></i> 500+ Successful Clients</span>
+                    <span><i class="fas fa-chart-line"></i> 99.3% Approval Rate</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= SERVICES SECTION ======================= -->
+        <section id="services">
+            <div class="container">
+                <h2>Comprehensive Financial Solutions Designed for You</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-home"></i>
+                        <h3>First Home Buyers</h3>
+                        <p>Navigate the path to your first home with our expert guidance and support every step of the way.</p>
+                        <a href="#">Explore Options &rarr;</a>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-sync-alt"></i>
+                        <h3>Refinancing</h3>
+                        <p>Optimize your current loan to find better rates, unlock equity, and consolidate debt effectively.</p>
+                        <a href="#">Explore Options &rarr;</a>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-chart-pie"></i>
+                        <h3>Investment Properties</h3>
+                        <p>Strategically expand your property portfolio with tailored advice and investment loan structures.</p>
+                        <a href="#">Explore Options &rarr;</a>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-building"></i>
+                        <h3>Commercial Lending</h3>
+                        <p>Fuel your business growth with tailored commercial finance solutions for any industry.</p>
+                        <a href="#">Explore Options &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= CALCULATOR SECTION ======================= -->
+        <section id="calculator">
+            <div class="container">
+                <h2>Discover Your Borrowing Capacity in 30 Seconds</h2>
+                <div class="calculator-interface">
+                    <div class="calculator-group">
+                        <label for="income"><span>Annual Income</span> <span id="income-value">$120,000</span></label>
+                        <input type="range" id="income" min="40000" max="400000" value="120000" step="5000">
+                    </div>
+                    <div class="calculator-group">
+                        <label for="expenses"><span>Monthly Expenses</span> <span id="expenses-value">$2,500</span></label>
+                        <input type="range" id="expenses" min="1000" max="10000" value="2500" step="100">
+                    </div>
+                    <div class="calculator-group">
+                        <label for="deposit"><span>Deposit Amount</span> <span id="deposit-value">$100,000</span></label>
+                        <input type="range" id="deposit" min="20000" max="1000000" value="100000" step="10000">
+                    </div>
+                    <div class="calculator-result">
+                        <p>Your Estimated Borrowing Power</p>
+                        <div class="amount" id="borrowing-power">$550,000</div>
+                    </div>
+                    <div class="calculator-cta">
+                        <a href="#contact" class="btn btn-primary">Get My Detailed Borrowing Report</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ======================= ABOUT SECTION ======================= -->
+        <section id="about">
+            <div class="container">
+                <h2>Melbourne's Next-Generation Mortgage Specialists</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?q=80&w=1974&auto=format&fit=crop" alt="Professional team in a modern office">
+                    </div>
+                    <div class="about-text">
+                        <h3>Your Trusted Partners in Property</h3>
+                        <p>At Aminex Financial, we combine decades of industry experience with cutting-edge technology to deliver outcomes that exceed expectations. We're not just brokers; we're your dedicated financial strategists.</p>
+                        <ul class="credentials-list">
+                            <li>20+ years combined industry expertise</li>
+                            <li>MFAA Certified and fully licensed specialists</li>
+                            <li>Exclusive partnerships with 40+ banks and private lenders</li>
+                            <li>Award-winning customer service excellence</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="partner-logos">
+                    <h3>Trusted by Australia's Leading Lenders</h3>
+                    <img src="https://via.placeholder.com/120x40/FFFFFF/000000?text=Lender1" alt="Partner Logo 1">
+                    <img src="https://via.placeholder.com/120x40/FFFFFF/000000?text=Lender2" alt="Partner Logo 2">
+                    <img src="https://via.placeholder.com/120x40/FFFFFF/000000?text=Lender3" alt="Partner Logo 3">
+                    <img src="https://via.placeholder.com/120x40/FFFFFF/000000?text=Lender4" alt="Partner Logo 4">
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= TESTIMONIALS SECTION ======================= -->
+        <section id="testimonials">
+            <div class="container">
+                <h2>Client Success Stories</h2>
+                <div class="testimonial-slider">
+                    <div class="testimonial-track" id="testimonial-track">
+                        <div class="testimonial-card">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop" alt="Client Photo" class="client-photo">
+                            <p class="testimonial-text">"Aminex Financial made the impossible possible. Their expertise and dedication secured us a rate we never thought we'd get. The entire process was seamless and stress-free."</p>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <div class="client-name">John & Sarah D.</div>
+                            <div class="client-pos">First Home Buyers, Richmond</div>
+                        </div>
+                        <div class="testimonial-card">
+                             <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop" alt="Client Photo" class="client-photo">
+                            <p class="testimonial-text">"As a seasoned investor, I demand efficiency and expertise. Aminex delivered on all fronts, restructuring my portfolio and saving me thousands. They are true professionals."</p>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <div class="client-name">Michael B.</div>
+                            <div class="client-pos">Property Investor, South Yarra</div>
+                        </div>
+                         <div class="testimonial-card">
+                            <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=1972&auto=format&fit=crop" alt="Client Photo" class="client-photo">
+                            <p class="testimonial-text">"Refinancing felt overwhelming until we spoke to the team at Aminex. They explained everything clearly and handled all the paperwork. We couldn't be happier with the outcome."</p>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <div class="client-name">Emily R.</div>
+                            <div class="client-pos">Refinanced, Brunswick</div>
+                        </div>
+                    </div>
+                    <div class="slider-controls">
+                        <button class="slider-btn" id="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-btn" id="next-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= CONTACT SECTION ======================= -->
+        <section id="contact">
+            <div class="container">
+                <h2>Ready to Transform Your Financial Future?</h2>
+                <div class="contact-grid">
+                    <div class="contact-form-wrapper">
+                        <h3>Send a Message</h3>
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <select name="loan_type">
+                                    <option>Select Loan Type</option>
+                                    <option>First Home Buyer</option>
+                                    <option>Refinancing</option>
+                                    <option>Investment Property</option>
+                                    <option>Commercial Loan</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Start My Journey</button>
+                        </form>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <p>Contact us today for a no-obligation chat about your financial goals. We're here to help.</p>
+                        <div class="contact-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div><strong>Address:</strong><br>Level 10, 120 Collins St, Melbourne VIC 3000</div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-phone"></i>
+                                <div><strong>Phone:</strong><br><a href="tel:1300000000">1300 000 000</a></div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-envelope"></i>
+                                <div><strong>Email:</strong><br><a href="mailto:hello@aminex.com.au">hello@aminex.com.au</a></div>
+                            </div>
+                        </div>
+                        <div class="google-map">
+                            [ Live Google Map Embedded Here ]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- ======================= FOOTER ======================= -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Aminex Financial</h4>
+                    <p>Melbourne's premium mortgage specialists, dedicated to providing innovative solutions and unparalleled service.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>Level 10, 120 Collins St<br>Melbourne VIC 3000<br>E: hello@aminex.com.au<br>P: 1300 000 000</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright &copy; 2024 Aminex Financial. All Rights Reserved.</p>
+                <p>Aminex Financial Pty Ltd | Australian Credit Licence Number: 123456</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // --- MOBILE NAVIGATION ---
+        const hamburger = document.getElementById('hamburger-menu');
+        const mainNav = document.getElementById('main-nav');
+
+        hamburger.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+
+        // --- CALCULATOR LOGIC (Simplified Demo) ---
+        const incomeSlider = document.getElementById('income');
+        const expensesSlider = document.getElementById('expenses');
+        const depositSlider = document.getElementById('deposit');
+        
+        const incomeValue = document.getElementById('income-value');
+        const expensesValue = document.getElementById('expenses-value');
+        const depositValue = document.getElementById('deposit-value');
+        const borrowingPowerDisplay = document.getElementById('borrowing-power');
+        
+        function formatCurrency(num) {
+            return '$' + Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        function updateCalculator() {
+            const income = parseInt(incomeSlider.value);
+            const expenses = parseInt(expensesSlider.value);
+            const deposit = parseInt(depositSlider.value);
+
+            // Display current slider values
+            incomeValue.textContent = formatCurrency(income);
+            expensesValue.textContent = formatCurrency(expenses);
+            depositValue.textContent = formatCurrency(deposit);
+            
+            // **IMPORTANT**: This is a simplified, non-financial formula for demonstration only.
+            // A real implementation requires a proper financial calculation.
+            const estimatedPower = (income * 4.5) - (expenses * 12 * 2) + (deposit * 0.5);
+            
+            borrowingPowerDisplay.textContent = formatCurrency(Math.max(0, estimatedPower));
+        }
+
+        incomeSlider.addEventListener('input', updateCalculator);
+        expensesSlider.addEventListener('input', updateCalculator);
+        depositSlider.addEventListener('input', updateCalculator);
+        
+        // Initial calculation on load
+        updateCalculator();
+
+        // --- TESTIMONIAL SLIDER ---
+        const track = document.getElementById('testimonial-track');
+        const slides = Array.from(track.children);
+        const nextButton = document.getElementById('next-btn');
+        const prevButton = document.getElementById('prev-btn');
+        let currentIndex = 0;
+
+        function moveToSlide(index) {
+            track.style.transform = 'translateX(-' + 100 * index + '%)';
+            currentIndex = index;
+        }
+
+        nextButton.addEventListener('click', e => {
+            let nextIndex = currentIndex + 1;
+            if (nextIndex >= slides.length) {
+                nextIndex = 0;
+            }
+            moveToSlide(nextIndex);
+        });
+
+        prevButton.addEventListener('click', e => {
+            let prevIndex = currentIndex - 1;
+            if (prevIndex < 0) {
+                prevIndex = slides.length - 1;
+            }
+            moveToSlide(prevIndex);
+        });
+
+        // --- CONTACT FORM SUBMISSION (Demo) ---
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevents the page from reloading
+            alert('Thank you for your message! A developer would connect this to an email service or CRM.');
+            contactForm.reset();
+        });
+
+    </script>
+</body>
+</html>
